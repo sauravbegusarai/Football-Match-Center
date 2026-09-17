@@ -1,0 +1,51 @@
+:root {
+
+    /* ================= COLORS ================= */
+
+    --primary: #16a34a;
+    --primary-dark: #15803d;
+
+    --background: #f5f7fa;
+    --surface: #ffffff;
+
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+
+    --border: #e5e7eb;
+
+    --live: #dc2626;
+    --success: #16a34a;
+    --warning: #f59e0b;
+
+
+    /* ================= SPACING ================= */
+
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 40px;
+    --space-xxl: 64px;
+
+
+    /* ================= BORDER ================= */
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+
+
+    /* ================= SHADOW ================= */
+
+    --shadow-sm:
+        0 2px 6px rgba(0, 0, 0, 0.05);
+
+    --shadow-md:
+        0 8px 24px rgba(0, 0, 0, 0.08);
+
+
+    /* ================= CONTAINER ================= */
+
+    --container-width: 1200px;
+
+}

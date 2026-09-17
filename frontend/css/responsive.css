@@ -1,0 +1,108 @@
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+    .main-nav {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .match-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .player-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: min(
+            100% - 24px,
+            var(--container-width)
+        );
+    }
+
+
+    .navbar {
+        min-height: 64px;
+    }
+
+
+    .logo {
+        font-size: 16px;
+    }
+
+
+    .logo-icon {
+        font-size: 22px;
+    }
+
+
+    .hero {
+        padding: 60px 0;
+    }
+
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+
+    .hero p {
+        font-size: 16px;
+    }
+
+
+    .section {
+        padding: 45px 0;
+    }
+
+
+    .section-header {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .section-header h2 {
+        font-size: 23px;
+    }
+
+
+    .match-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .player-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+
+}
