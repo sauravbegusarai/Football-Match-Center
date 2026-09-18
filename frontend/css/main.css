@@ -1085,3 +1085,122 @@ button {
 .summary-list strong {
     color: var(--text);
 }
+
+/* =========================================
+   MATCH TAB CONTENT
+========================================= */
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
+/* =========================================
+   LINEUPS
+========================================= */
+
+.lineups-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.lineup-team h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.lineup-player {
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.lineup-player span {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* =========================================
+   PROFESSIONAL LINEUPS
+========================================= */
+
+.lineups-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.lineup-team {
+    background: var(--white);
+}
+
+.lineup-team h4 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+}
+
+.lineup-player {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 12px 15px;
+    margin-bottom: 8px;
+
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.lineup-player:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow);
+}
+
+.lineup-player strong {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+    color: var(--white);
+
+    font-size: 13px;
+}
+
+.lineup-player {
+    font-size: 14px;
+}
+
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.statistics-list > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.statistics-list > div:last-child {
+    border-bottom: none;
+}

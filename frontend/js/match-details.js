@@ -2,6 +2,8 @@
 // MATCH DATA
 // =========================================
 
+
+
 const matches = [
     {
         id: 1,
@@ -50,7 +52,37 @@ const matches = [
             shotsOnTarget: "6 - 4",
             corners: "7 - 3",
             fouls: "8 - 11"
-        }
+        },
+
+        lineups: {
+    home: [
+        { number: 31, name: "Ederson" },
+        { number: 2, name: "Kyle Walker" },
+        { number: 3, name: "Rúben Dias" },
+        { number: 25, name: "Manuel Akanji" },
+        { number: 5, name: "John Stones" },
+        { number: 17, name: "Kevin De Bruyne" },
+        { number: 16, name: "Rodri" },
+        { number: 20, name: "Bernardo Silva" },
+        { number: 47, name: "Phil Foden" },
+        { number: 9, name: "Erling Haaland" },
+        { number: 10, name: "Jack Grealish" }
+    ],
+
+    away: [
+        { number: 22, name: "David Raya" },
+        { number: 4, name: "Ben White" },
+        { number: 2, name: "William Saliba" },
+        { number: 6, name: "Gabriel Magalhães" },
+        { number: 35, name: "Oleksandr Zinchenko" },
+        { number: 8, name: "Martin Ødegaard" },
+        { number: 41, name: "Declan Rice" },
+        { number: 7, name: "Bukayo Saka" },
+        { number: 29, name: "Kai Havertz" },
+        { number: 11, name: "Gabriel Martinelli" },
+        { number: 9, name: "Gabriel Jesus" }
+    ]
+}
     },
 
     {
@@ -210,6 +242,7 @@ function renderMatchDetails(match) {
 
     // Statistics
     renderStatistics(match.statistics);
+    renderLineups(match.lineups);
 }
 
 
@@ -219,41 +252,45 @@ function renderMatchDetails(match) {
 
 function renderEvents(events) {
 
-    const timeline =
-        document.querySelector(".events-timeline");
+    const timelines =
+        document.querySelectorAll(".events-timeline");
 
-    timeline.innerHTML = "";
+    timelines.forEach(timeline => {
 
-    events.forEach(event => {
+        timeline.innerHTML = "";
 
-        timeline.innerHTML += `
-            <div class="event-item">
+        events.forEach(event => {
 
-                <div class="event-minute">
-                    ${event.minute}
+            timeline.innerHTML += `
+                <div class="event-item">
+
+                    <div class="event-minute">
+                        ${event.minute}
+                    </div>
+
+                    <div class="event-icon">
+                        ${event.icon}
+                    </div>
+
+                    <div class="event-description">
+
+                        <strong>
+                            ${event.type}
+                        </strong>
+
+                        <p>
+                            ${event.player}
+                        </p>
+
+                    </div>
+
                 </div>
+            `;
 
-                <div class="event-icon">
-                    ${event.icon}
-                </div>
+        });
 
-                <div class="event-description">
-
-                    <strong>
-                        ${event.type}
-                    </strong>
-
-                    <p>
-                        ${event.player}
-                    </p>
-
-                </div>
-
-            </div>
-        `;
     });
 }
-
 
 // =========================================
 // RENDER STATISTICS
@@ -261,10 +298,12 @@ function renderEvents(events) {
 
 function renderStatistics(statistics) {
 
-    const summaryList =
-        document.querySelector(".summary-list");
+    const statisticsList =
+        document.querySelector(".statistics-list");
 
-    summaryList.innerHTML = `
+    if (!statisticsList) return;
+
+    statisticsList.innerHTML = `
         <div>
             <span>Possession</span>
             <strong>${statistics.possession}</strong>
@@ -290,4 +329,108 @@ function renderStatistics(statistics) {
             <strong>${statistics.fouls}</strong>
         </div>
     `;
+}
+
+// =========================================
+// TAB FUNCTIONALITY
+// =========================================
+
+const tabs = document.querySelectorAll(".match-tab");
+
+const tabContents = {
+    Overview: document.getElementById("overviewContent"),
+    Events: document.getElementById("eventsContent"),
+    Lineups: document.getElementById("lineupsContent"),
+    Statistics: document.getElementById("statisticsContent")
+};
+
+
+tabs.forEach(tab => {
+
+    tab.addEventListener("click", () => {
+
+        // Remove active class from all tabs
+        tabs.forEach(item => {
+            item.classList.remove("active");
+        });
+
+        // Add active class to clicked tab
+        tab.classList.add("active");
+
+
+        // Hide all tab contents
+        Object.values(tabContents).forEach(content => {
+            content.classList.remove("active");
+        });
+
+
+        // Get clicked tab name
+        const tabName = tab.textContent.trim();
+
+
+        // Show selected content
+        if (tabContents[tabName]) {
+            tabContents[tabName].classList.add("active");
+        }
+
+    });
+
+});
+
+// =========================================
+// RENDER LINEUPS
+// =========================================
+
+function renderLineups(lineups) {
+
+    const homePlayers =
+        document.getElementById("homePlayers");
+
+    const awayPlayers =
+        document.getElementById("awayPlayers");
+
+    const homeTitle =
+        document.getElementById("homeLineupTitle");
+
+    const awayTitle =
+        document.getElementById("awayLineupTitle");
+
+
+    if (!homePlayers || !awayPlayers) return;
+
+
+    // Team names
+    homeTitle.textContent = match.homeTeam;
+    awayTitle.textContent = match.awayTeam;
+
+
+    // Home players
+    homePlayers.innerHTML = "";
+
+    lineups.home.forEach(player => {
+
+        homePlayers.innerHTML += `
+            <div class="lineup-player">
+                <strong>${player.number}</strong>
+                ${player.name}
+            </div>
+        `;
+
+    });
+
+
+    // Away players
+    awayPlayers.innerHTML = "";
+
+    lineups.away.forEach(player => {
+
+        awayPlayers.innerHTML += `
+            <div class="lineup-player">
+                <strong>${player.number}</strong>
+                ${player.name}
+            </div>
+        `;
+
+    });
+
 }

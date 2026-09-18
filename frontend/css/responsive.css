@@ -106,3 +106,16 @@
     }
 
 }
+
+/* =========================================
+   LINEUPS MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .lineups-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+}

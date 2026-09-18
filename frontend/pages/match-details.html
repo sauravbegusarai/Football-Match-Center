@@ -195,172 +195,99 @@
 
                 <!-- ================= MATCH CONTENT ================= -->
 
-                <div class="match-content-grid">
+               <div class="match-content-grid">
 
+    <!-- OVERVIEW -->
+    <div class="tab-content active" id="overviewContent">
 
-                    <!-- Match Events -->
+        <div class="details-panel">
+            <div class="panel-header">
+                <h3>Match Events</h3>
+            </div>
 
-                    <section class="details-panel">
+            <div class="events-timeline">
+                <!-- Events will be added by JavaScript -->
+            </div>
+        </div>
 
-                        <div class="panel-header">
+        <div class="details-panel">
+            <div class="panel-header">
+                <h3>Match Summary</h3>
+            </div>
 
-                            <h2>Match Events</h2>
+            <div class="summary-list">
+                <!-- Summary will be added by JavaScript -->
+            </div>
+        </div>
 
-                        </div>
+    </div>
 
 
-                        <div class="events-timeline">
+    <!-- EVENTS -->
+    <div class="tab-content" id="eventsContent">
 
+        <div class="details-panel">
+            <div class="panel-header">
+                <h3>Match Events</h3>
+            </div>
 
-                            <!-- Goal -->
+            <div class="events-timeline events-timeline-full">
+                <!-- Events will be added by JavaScript -->
+            </div>
+        </div>
 
-                            <div class="event-item">
+    </div>
 
-                                <div class="event-minute">
-                                    67'
-                                </div>
 
-                                <div class="event-icon">
-                                    ⚽
-                                </div>
+    <!-- LINEUPS -->
+    <div class="tab-content" id="lineupsContent">
 
-                                <div class="event-description">
+        <div class="details-panel">
+            <div class="panel-header">
+                <h3>Starting Lineups</h3>
+            </div>
 
-                                    <strong>Goal</strong>
+            <div class="lineups-container">
 
-                                    <p>
-                                        Erling Haaland
-                                    </p>
+                <div class="lineup-team">
+                    <h4 id="homeLineupTitle">Home Team</h4>
 
-                                </div>
+                    <div id="homePlayers">
+                        <!-- Players will be added by JavaScript -->
+                    </div>
+                </div>
 
-                            </div>
 
+                <div class="lineup-team">
+                    <h4 id="awayLineupTitle">Away Team</h4>
 
-                            <!-- Yellow Card -->
-
-                            <div class="event-item">
-
-                                <div class="event-minute">
-                                    54'
-                                </div>
-
-                                <div class="event-icon">
-                                    🟨
-                                </div>
-
-                                <div class="event-description">
-
-                                    <strong>Yellow Card</strong>
-
-                                    <p>
-                                        Declan Rice
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- Half Time -->
-
-                            <div class="event-item">
-
-                                <div class="event-minute">
-                                    45'
-                                </div>
-
-                                <div class="event-icon">
-                                    ⏱️
-                                </div>
-
-                                <div class="event-description">
-
-                                    <strong>Half Time</strong>
-
-                                    <p>
-                                        Manchester City 2 - 1 Arsenal
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                            <!-- Goal -->
-
-                            <div class="event-item">
-
-                                <div class="event-minute">
-                                    23'
-                                </div>
-
-                                <div class="event-icon">
-                                    ⚽
-                                </div>
-
-                                <div class="event-description">
-
-                                    <strong>Goal</strong>
-
-                                    <p>
-                                        Bukayo Saka
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-                    </section>
-
-
-                    <!-- Match Summary -->
-
-                    <section class="details-panel">
-
-                        <div class="panel-header">
-
-                            <h2>Match Summary</h2>
-
-                        </div>
-
-                        <div class="summary-list">
-
-                            <div>
-                                <span>Possession</span>
-                                <strong>58% - 42%</strong>
-                            </div>
-
-                            <div>
-                                <span>Shots</span>
-                                <strong>12 - 8</strong>
-                            </div>
-
-                            <div>
-                                <span>Shots on Target</span>
-                                <strong>6 - 4</strong>
-                            </div>
-
-                            <div>
-                                <span>Corners</span>
-                                <strong>7 - 3</strong>
-                            </div>
-
-                            <div>
-                                <span>Fouls</span>
-                                <strong>8 - 11</strong>
-                            </div>
-
-                        </div>
-
-                    </section>
-
+                    <div id="awayPlayers">
+                        <!-- Players will be added by JavaScript -->
+                    </div>
                 </div>
 
             </div>
+        </div>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+    <div class="tab-content" id="statisticsContent">
+
+        <div class="details-panel">
+            <div class="panel-header">
+                <h3>Match Statistics</h3>
+            </div>
+
+            <div class="summary-list statistics-list">
+                <!-- Statistics will be added by JavaScript -->
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
         </section>
 
