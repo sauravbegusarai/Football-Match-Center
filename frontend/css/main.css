@@ -85,6 +85,7 @@ button {
 }
 
 
+
 /* LOGO */
 
 .logo {
@@ -711,4 +712,376 @@ button {
     color: #9ca3af;
 
     font-size: 12px;
+}
+.team-logo {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #f3f4f6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.team-logo-image {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.team-logo-fallback {
+    width: 100%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+}
+.match-card-clickable {
+    cursor: pointer;
+}
+
+.match-card-clickable:hover {
+    transform: translateY(-5px);
+}
+
+.search-box {
+    display: none;
+}
+
+.search-box.active {
+    display: block;
+}
+
+.search-box input {
+    width: 220px;
+
+    padding: 10px 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color:
+        var(--primary);
+}
+
+
+/* =========================================
+   MATCH DETAILS PAGE
+========================================= */
+
+.breadcrumb-section {
+    padding: 24px 0 10px;
+}
+
+.breadcrumb-section a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.match-details-section {
+    padding: 20px 0 60px;
+}
+
+
+/* =========================================
+   MATCH DETAILS CARD
+========================================= */
+
+.match-details-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 35px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.match-competition {
+    margin-bottom: 12px;
+}
+
+.match-competition span {
+    display: inline-block;
+    background: #eef2ff;
+    color: var(--primary);
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.match-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    color: #dc2626;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.live-dot {
+    width: 9px;
+    height: 9px;
+    background: #dc2626;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+/* =========================================
+   TEAMS + SCORE
+========================================= */
+
+.match-teams-large {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+}
+
+.large-team {
+    width: 200px;
+}
+
+.large-team-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+    background: #f3f4f6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 45px;
+}
+
+.large-team h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.large-team p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.large-score {
+    min-width: 140px;
+}
+
+.score-number {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.large-score span {
+    color: #dc2626;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   MATCH INFORMATION
+========================================= */
+
+.match-information {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border);
+
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+}
+
+.match-information > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.match-information > div > span {
+    font-size: 22px;
+}
+
+.match-information p {
+    text-align: left;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.match-information strong {
+    display: block;
+    color: var(--text);
+    margin-bottom: 3px;
+}
+
+
+/* =========================================
+   MATCH TABS
+========================================= */
+
+.match-tabs {
+    margin-top: 25px;
+
+    display: flex;
+    justify-content: center;
+
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    overflow: hidden;
+}
+
+.match-tab {
+    flex: 1;
+    padding: 15px 20px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.match-tab:hover {
+    background: #f8fafc;
+    color: var(--primary);
+}
+
+.match-tab.active {
+    background: var(--primary);
+    color: white;
+}
+
+
+/* =========================================
+   CONTENT GRID
+========================================= */
+
+.match-content-grid {
+    margin-top: 25px;
+
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 25px;
+}
+
+.details-panel {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.panel-header {
+    padding: 20px 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.panel-header h2 {
+    font-size: 20px;
+}
+
+
+/* =========================================
+   EVENTS TIMELINE
+========================================= */
+
+.events-timeline {
+    padding: 10px 22px;
+}
+
+.event-item {
+    display: grid;
+    grid-template-columns: 45px 45px 1fr;
+    align-items: center;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.event-item:last-child {
+    border-bottom: none;
+}
+
+.event-minute {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.event-icon {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+    background: #f3f4f6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-description strong {
+    font-size: 15px;
+}
+
+.event-description p {
+    margin-top: 4px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+
+/* =========================================
+   MATCH SUMMARY
+========================================= */
+
+.summary-list {
+    padding: 10px 22px;
+}
+
+.summary-list > div {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.summary-list > div:last-child {
+    border-bottom: none;
+}
+
+.summary-list span {
+    color: var(--text-muted);
+}
+
+.summary-list strong {
+    color: var(--text);
 }

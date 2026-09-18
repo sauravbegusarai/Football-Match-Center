@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Match Details | Football Match Center</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="navbar">
+
+        <div class="container navbar-content">
+
+            <a href="../index.html" class="logo">
+                ⚽ Football Match Center
+            </a>
+
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#liveMatches">Matches</a>
+                <a href="#">Teams</a>
+                <a href="#">Players</a>
+                <a href="#">Standings</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="icon-button" id="searchButton">
+                    🔍
+                </button>
+
+                <button class="mobile-menu-button" id="mobileMenuButton">
+                    ☰
+                </button>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MATCH DETAILS ================= -->
+
+    <main>
+
+        <!-- Breadcrumb -->
+
+        <section class="breadcrumb-section">
+
+            <div class="container">
+
+                <a href="../index.html">
+                    ← Back to Matches
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Match Header -->
+
+        <section class="match-details-section">
+
+            <div class="container">
+
+                <div class="match-details-card">
+
+                    <!-- Competition -->
+
+                    <div class="match-competition">
+                        <span>Premier League</span>
+                    </div>
+
+
+                    <!-- Status -->
+
+                    <div class="match-status">
+                        <span class="live-dot"></span>
+                        LIVE 67'
+                    </div>
+
+
+                    <!-- Teams and Score -->
+
+                    <div class="match-teams-large">
+
+                        <!-- Home Team -->
+
+                        <div class="large-team">
+
+                            <div class="large-team-logo">
+                                ⚽
+                            </div>
+
+                            <h2>Manchester City</h2>
+
+                            <p>Home</p>
+
+                        </div>
+
+
+                        <!-- Score -->
+
+                        <div class="large-score">
+
+                            <div class="score-number">
+                                2 - 1
+                            </div>
+
+                            <span>67'</span>
+
+                        </div>
+
+
+                        <!-- Away Team -->
+
+                        <div class="large-team">
+
+                            <div class="large-team-logo">
+                                ⚽
+                            </div>
+
+                            <h2>Arsenal</h2>
+
+                            <p>Away</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Match Information -->
+
+                    <div class="match-information">
+
+                        <div>
+                            <span>🏟️</span>
+                            <p>
+                                <strong>Venue</strong>
+                                Etihad Stadium
+                            </p>
+                        </div>
+
+                        <div>
+                            <span>📅</span>
+                            <p>
+                                <strong>Date</strong>
+                                Today
+                            </p>
+                        </div>
+
+                        <div>
+                            <span>⏱️</span>
+                            <p>
+                                <strong>Status</strong>
+                                Match in progress
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= MATCH TABS ================= -->
+
+                <div class="match-tabs">
+
+                    <button class="match-tab active">
+                        Overview
+                    </button>
+
+                    <button class="match-tab">
+                        Events
+                    </button>
+
+                    <button class="match-tab">
+                        Lineups
+                    </button>
+
+                    <button class="match-tab">
+                        Statistics
+                    </button>
+
+                </div>
+
+
+                <!-- ================= MATCH CONTENT ================= -->
+
+                <div class="match-content-grid">
+
+
+                    <!-- Match Events -->
+
+                    <section class="details-panel">
+
+                        <div class="panel-header">
+
+                            <h2>Match Events</h2>
+
+                        </div>
+
+
+                        <div class="events-timeline">
+
+
+                            <!-- Goal -->
+
+                            <div class="event-item">
+
+                                <div class="event-minute">
+                                    67'
+                                </div>
+
+                                <div class="event-icon">
+                                    ⚽
+                                </div>
+
+                                <div class="event-description">
+
+                                    <strong>Goal</strong>
+
+                                    <p>
+                                        Erling Haaland
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Yellow Card -->
+
+                            <div class="event-item">
+
+                                <div class="event-minute">
+                                    54'
+                                </div>
+
+                                <div class="event-icon">
+                                    🟨
+                                </div>
+
+                                <div class="event-description">
+
+                                    <strong>Yellow Card</strong>
+
+                                    <p>
+                                        Declan Rice
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Half Time -->
+
+                            <div class="event-item">
+
+                                <div class="event-minute">
+                                    45'
+                                </div>
+
+                                <div class="event-icon">
+                                    ⏱️
+                                </div>
+
+                                <div class="event-description">
+
+                                    <strong>Half Time</strong>
+
+                                    <p>
+                                        Manchester City 2 - 1 Arsenal
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Goal -->
+
+                            <div class="event-item">
+
+                                <div class="event-minute">
+                                    23'
+                                </div>
+
+                                <div class="event-icon">
+                                    ⚽
+                                </div>
+
+                                <div class="event-description">
+
+                                    <strong>Goal</strong>
+
+                                    <p>
+                                        Bukayo Saka
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Match Summary -->
+
+                    <section class="details-panel">
+
+                        <div class="panel-header">
+
+                            <h2>Match Summary</h2>
+
+                        </div>
+
+                        <div class="summary-list">
+
+                            <div>
+                                <span>Possession</span>
+                                <strong>58% - 42%</strong>
+                            </div>
+
+                            <div>
+                                <span>Shots</span>
+                                <strong>12 - 8</strong>
+                            </div>
+
+                            <div>
+                                <span>Shots on Target</span>
+                                <strong>6 - 4</strong>
+                            </div>
+
+                            <div>
+                                <span>Corners</span>
+                                <strong>7 - 3</strong>
+                            </div>
+
+                            <div>
+                                <span>Fouls</span>
+                                <strong>8 - 11</strong>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 Football Match Center. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

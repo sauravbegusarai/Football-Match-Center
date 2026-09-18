@@ -8,9 +8,79 @@
 // MOCK DATA
 // ==================================================
 
+const searchButton =
+    document.getElementById("searchButton");
+
+const searchBox =
+    document.getElementById("searchBox");
+
+
+if (searchButton && searchBox) {
+
+    searchButton.addEventListener("click", () => {
+
+        searchBox.classList.toggle("active");
+
+        if (searchBox.classList.contains("active")) {
+
+            document
+                .getElementById("searchInput")
+                .focus();
+
+        }
+
+    });
+
+}  
+
+function setupMatchCardEvents() {
+
+    const cards =
+        document.querySelectorAll(".match-card-clickable");
+
+    cards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            const matchId =
+                card.dataset.matchId;
+
+            window.location.href =
+                `pages/match-details.html?id=${matchId}`;
+
+        });
+
+    });
+
+}
+
+function getTeamLogo(path, fallback = "⚽") {
+
+    if (!path) {
+        return fallback;
+    }
+
+    return `
+        <img
+            src="${path}"
+            alt="Team logo"
+            class="team-logo-image"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+
+        <span
+            class="team-logo-fallback"
+            style="display:none;"
+        >
+            ${fallback}
+        </span>
+    `;
+}
+
 const liveMatches = [
 
     {
+        id: 1,
         competition: "Premier League",
         status: "LIVE",
         minute: 67,
@@ -18,8 +88,8 @@ const liveMatches = [
         homeTeam: "Manchester City",
         awayTeam: "Arsenal",
 
-        homeLogo: "🔵",
-        awayLogo: "🔴",
+        homeLogo: "assets/images/manchester-city.png",
+        awayLogo: "assets/images/arsenal.png",
 
         homeScore: 2,
         awayScore: 1,
@@ -28,6 +98,7 @@ const liveMatches = [
     },
 
     {
+        id: 2,
         competition: "La Liga",
         status: "LIVE",
         minute: 54,
@@ -35,8 +106,8 @@ const liveMatches = [
         homeTeam: "Barcelona",
         awayTeam: "Real Madrid",
 
-        homeLogo: "🔵",
-        awayLogo: "⚪",
+        homeLogo: "assets/images/barcelona.png",
+        awayLogo: "assets/images/real-madrid.png",
 
         homeScore: 1,
         awayScore: 1,
@@ -219,7 +290,10 @@ function createMatchCard(match, type) {
 
         return `
 
-            <article class="match-card">
+            <article
+    class="match-card ${type === "live" ? "match-card-clickable" : ""}"
+    data-match-id="${type === "live" ? match.id : ""}"
+>
 
                 <div class="match-header">
 
@@ -239,8 +313,8 @@ function createMatchCard(match, type) {
                     <div class="team">
 
                         <div class="team-logo">
-                            ${match.homeLogo}
-                        </div>
+    ${getTeamLogo(match.homeLogo, "⚽")}
+</div>
 
                         <span class="team-name">
                             ${match.homeTeam}
@@ -264,9 +338,9 @@ function createMatchCard(match, type) {
 
                     <div class="team">
 
-                        <div class="team-logo">
-                            ${match.awayLogo}
-                        </div>
+                       <div class="team-logo">
+    ${getTeamLogo(match.awayLogo, "⚽")}
+</div>
 
                         <span class="team-name">
                             ${match.awayTeam}
@@ -291,8 +365,10 @@ function createMatchCard(match, type) {
 
         return `
 
-            <article class="match-card">
-
+           <article
+    class="match-card ${type === "live" ? "match-card-clickable" : ""}"
+    data-match-id="${type === "live" ? match.id : ""}"
+>
                 <div class="match-header">
 
                     <span class="competition">
@@ -311,8 +387,8 @@ function createMatchCard(match, type) {
                     <div class="team">
 
                         <div class="team-logo">
-                            ${match.homeLogo}
-                        </div>
+    ${getTeamLogo(match.homeLogo, "⚽")}
+</div>
 
                         <span class="team-name">
                             ${match.homeTeam}
@@ -337,8 +413,8 @@ function createMatchCard(match, type) {
                     <div class="team">
 
                         <div class="team-logo">
-                            ${match.awayLogo}
-                        </div>
+    ${getTeamLogo(match.awayLogo, "⚽")}
+</div>
 
                         <span class="team-name">
                             ${match.awayTeam}
@@ -363,7 +439,10 @@ function createMatchCard(match, type) {
 
         return `
 
-            <article class="match-card">
+            <article
+    class="match-card ${type === "live" ? "match-card-clickable" : ""}"
+    data-match-id="${type === "live" ? match.id : ""}"
+>
 
                 <div class="match-header">
 
@@ -383,9 +462,8 @@ function createMatchCard(match, type) {
                     <div class="team">
 
                         <div class="team-logo">
-                            ${match.homeLogo}
-                        </div>
-
+    ${getTeamLogo(match.homeLogo, "⚽")}
+</div>
                         <span class="team-name">
                             ${match.homeTeam}
                         </span>
@@ -404,9 +482,9 @@ function createMatchCard(match, type) {
 
                     <div class="team">
 
-                        <div class="team-logo">
-                            ${match.awayLogo}
-                        </div>
+                       <div class="team-logo">
+    ${getTeamLogo(match.awayLogo, "⚽")}
+</div>
 
                         <span class="team-name">
                             ${match.awayTeam}
@@ -654,7 +732,7 @@ function initializeApp() {
 
     renderTopPlayers();
 
+    setupMatchCardEvents();
 }
-
 
 initializeApp();
