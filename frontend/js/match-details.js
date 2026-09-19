@@ -1,134 +1,4 @@
-// =========================================
-// MATCH DATA
-// =========================================
 
-
-
-const matches = [
-    {
-        id: 1,
-        competition: "Premier League",
-        status: "LIVE",
-        minute: 67,
-
-        homeTeam: "Manchester City",
-        awayTeam: "Arsenal",
-
-        homeScore: 2,
-        awayScore: 1,
-
-        venue: "Etihad Stadium",
-
-        events: [
-            {
-                minute: "67'",
-                icon: "⚽",
-                type: "Goal",
-                player: "Erling Haaland"
-            },
-            {
-                minute: "54'",
-                icon: "🟨",
-                type: "Yellow Card",
-                player: "Declan Rice"
-            },
-            {
-                minute: "45'",
-                icon: "⏱️",
-                type: "Half Time",
-                player: "Manchester City 2 - 1 Arsenal"
-            },
-            {
-                minute: "23'",
-                icon: "⚽",
-                type: "Goal",
-                player: "Bukayo Saka"
-            }
-        ],
-
-        statistics: {
-            possession: "58% - 42%",
-            shots: "12 - 8",
-            shotsOnTarget: "6 - 4",
-            corners: "7 - 3",
-            fouls: "8 - 11"
-        },
-
-        lineups: {
-    home: [
-        { number: 31, name: "Ederson" },
-        { number: 2, name: "Kyle Walker" },
-        { number: 3, name: "Rúben Dias" },
-        { number: 25, name: "Manuel Akanji" },
-        { number: 5, name: "John Stones" },
-        { number: 17, name: "Kevin De Bruyne" },
-        { number: 16, name: "Rodri" },
-        { number: 20, name: "Bernardo Silva" },
-        { number: 47, name: "Phil Foden" },
-        { number: 9, name: "Erling Haaland" },
-        { number: 10, name: "Jack Grealish" }
-    ],
-
-    away: [
-        { number: 22, name: "David Raya" },
-        { number: 4, name: "Ben White" },
-        { number: 2, name: "William Saliba" },
-        { number: 6, name: "Gabriel Magalhães" },
-        { number: 35, name: "Oleksandr Zinchenko" },
-        { number: 8, name: "Martin Ødegaard" },
-        { number: 41, name: "Declan Rice" },
-        { number: 7, name: "Bukayo Saka" },
-        { number: 29, name: "Kai Havertz" },
-        { number: 11, name: "Gabriel Martinelli" },
-        { number: 9, name: "Gabriel Jesus" }
-    ]
-}
-    },
-
-    {
-        id: 2,
-        competition: "La Liga",
-        status: "LIVE",
-        minute: 54,
-
-        homeTeam: "Barcelona",
-        awayTeam: "Real Madrid",
-
-        homeScore: 1,
-        awayScore: 1,
-
-        venue: "Camp Nou",
-
-        events: [
-            {
-                minute: "54'",
-                icon: "⚽",
-                type: "Goal",
-                player: "Robert Lewandowski"
-            },
-            {
-                minute: "41'",
-                icon: "🟨",
-                type: "Yellow Card",
-                player: "Jude Bellingham"
-            },
-            {
-                minute: "28'",
-                icon: "⚽",
-                type: "Goal",
-                player: "Vinicius Junior"
-            }
-        ],
-
-        statistics: {
-            possession: "51% - 49%",
-            shots: "9 - 10",
-            shotsOnTarget: "4 - 5",
-            corners: "4 - 5",
-            fouls: "10 - 9"
-        }
-    }
-];
 
 
 // =========================================
@@ -141,39 +11,69 @@ const matchId = Number(urlParams.get("id"));
 
 
 // =========================================
-// FIND MATCH
+// LOAD MATCH FROM BACKEND
 // =========================================
 
-const match = matches.find(item => item.id === matchId);
+async function loadMatch() {
+
+    try {
+
+        const response = await fetch(
+            `http://localhost:5000/api/matches/${matchId}`
+        );
+
+        const result = await response.json();
+
+        if (!result.success) {
+
+            showMatchNotFound();
+            return;
+
+        }
+
+        renderMatchDetails(result.data);
+
+    } catch (error) {
+
+        console.error(
+            "Failed to load match:",
+            error
+        );
+
+    }
+
+}
 
 
 // =========================================
-// CHECK MATCH
+// MATCH NOT FOUND
 // =========================================
 
-if (!match) {
+function showMatchNotFound() {
 
     document.querySelector(".match-details-section").innerHTML = `
         <div class="container">
             <div class="match-details-card">
                 <h2>Match Not Found</h2>
+
                 <p>
                     The requested match does not exist.
                 </p>
+
                 <br>
+
                 <a href="../index.html">
                     ← Back to Matches
                 </a>
+
             </div>
         </div>
     `;
 
-} else {
-
-    renderMatchDetails(match);
-
 }
 
+
+loadMatch();
 
 // =========================================
 // RENDER MATCH DETAILS
@@ -381,7 +281,7 @@ tabs.forEach(tab => {
 // RENDER LINEUPS
 // =========================================
 
-function renderLineups(lineups) {
+function renderLineups(lineups, homeTeam, awayTeam) {
 
     const homePlayers =
         document.getElementById("homePlayers");
@@ -395,16 +295,11 @@ function renderLineups(lineups) {
     const awayTitle =
         document.getElementById("awayLineupTitle");
 
-
     if (!homePlayers || !awayPlayers) return;
 
+    homeTitle.textContent = homeTeam;
+    awayTitle.textContent = awayTeam;
 
-    // Team names
-    homeTitle.textContent = match.homeTeam;
-    awayTitle.textContent = match.awayTeam;
-
-
-    // Home players
     homePlayers.innerHTML = "";
 
     lineups.home.forEach(player => {
@@ -418,8 +313,6 @@ function renderLineups(lineups) {
 
     });
 
-
-    // Away players
     awayPlayers.innerHTML = "";
 
     lineups.away.forEach(player => {
@@ -432,5 +325,4 @@ function renderLineups(lineups) {
         `;
 
     });
-
 }

@@ -736,3 +736,86 @@ function initializeApp() {
 }
 
 initializeApp();
+
+
+// =========================================
+// LOAD LIVE MATCHES FROM BACKEND
+// =========================================
+
+async function loadLiveMatchesFromBackend() {
+
+    try {
+
+        const response =
+            await fetch("http://localhost:5000/api/matches");
+
+        const result =
+            await response.json();
+
+        if (!result.success) {
+            return;
+        }
+
+        const liveMatches =
+            document.getElementById("liveMatches");
+
+        if (!liveMatches) {
+            return;
+        }
+
+        liveMatches.innerHTML = "";
+
+        result.data.forEach(match => {
+
+            liveMatches.innerHTML += `
+
+                <article class="match-card">
+
+                    <div class="match-card-header">
+
+                        <span>
+                            ${match.competition}
+                        </span>
+
+                        <span>
+                            ${match.status}
+                        </span>
+
+                    </div>
+
+                    <div class="match-card-teams">
+
+                        <div>
+                            ${match.homeTeam}
+                        </div>
+
+                        <strong>
+                            ${match.homeScore}
+                            -
+                            ${match.awayScore}
+                        </strong>
+
+                        <div>
+                            ${match.awayTeam}
+                        </div>
+
+                    </div>
+
+                </article>
+
+            `;
+
+        });
+
+    } catch (error) {
+
+        console.error(
+            "Failed to load matches:",
+            error
+        );
+
+    }
+
+}
+
+loadLiveMatchesFromBackend();
