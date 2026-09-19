@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Standings | Football Match Center</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/variables.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/main.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="container navbar-content">
+
+            <a
+                href="../index.html"
+                class="logo"
+            >
+                Football Match Center
+            </a>
+
+
+            <nav class="nav-links">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="match-details.html">
+                    Matches
+                </a>
+
+                <a href="teams.html">
+                    Teams
+                </a>
+
+                <a href="players.html">
+                    Players
+                </a>
+
+                <a
+                    href="standings.html"
+                    class="active"
+                >
+                    Standings
+                </a>
+
+                <a href="#">
+                    Fixtures
+                </a>
+
+                <a href="#">
+                    Results
+                </a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <button
+                    class="icon-button"
+                    id="searchButton"
+                >
+                    🔍
+                </button>
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Search -->
+
+        <div
+            class="search-box"
+            id="searchBox"
+        >
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search teams, players..."
+            >
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+
+    <section class="page-header">
+
+        <div class="container">
+
+            <h1>
+                League Standings
+            </h1>
+
+            <p>
+                Current league table and team rankings
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         STANDINGS SECTION
+    ========================== -->
+
+    <main>
+
+        <section class="standings-page-section">
+
+            <div class="container">
+
+
+                <!-- League Filter -->
+
+                <div class="standings-controls">
+
+                    <label for="leagueFilter">
+                        Select League
+                    </label>
+
+                    <select id="leagueFilter">
+
+                        <option value="Premier League">
+                            Premier League
+                        </option>
+
+                        <option value="La Liga">
+                            La Liga
+                        </option>
+
+                        <option value="Bundesliga">
+                            Bundesliga
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Standings Panel -->
+
+                <div class="standings-panel">
+
+                    <div class="panel-header">
+
+                        <h2 id="leagueTitle">
+                            Premier League
+                        </h2>
+
+                        <span>
+                            2026 Season
+                        </span>
+
+                    </div>
+
+
+                    <!-- Table -->
+
+                    <div class="standings-table-wrapper">
+
+                        <table class="standings-page-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        #
+                                    </th>
+
+                                    <th>
+                                        Team
+                                    </th>
+
+                                    <th>
+                                        P
+                                    </th>
+
+                                    <th>
+                                        W
+                                    </th>
+
+                                    <th>
+                                        D
+                                    </th>
+
+                                    <th>
+                                        L
+                                    </th>
+
+                                    <th>
+                                        GF
+                                    </th>
+
+                                    <th>
+                                        GA
+                                    </th>
+
+                                    <th>
+                                        GD
+                                    </th>
+
+                                    <th>
+                                        PTS
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="standingsBody">
+
+                                <!--
+                                    Standings will be
+                                    rendered by JavaScript
+                                -->
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 Football Match Center.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="../js/main.js"></script>
+
+    <script src="../js/standings.js"></script>
+
+</body>
+
+</html>

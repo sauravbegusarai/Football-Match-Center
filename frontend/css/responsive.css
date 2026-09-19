@@ -205,3 +205,33 @@
     }
 
 }
+
+/* =========================================
+   STANDINGS RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .standings-controls {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .standings-controls select {
+        width: 100%;
+    }
+
+    .standings-panel .panel-header {
+        padding: 18px;
+    }
+
+    .standings-panel .panel-header h2 {
+        font-size: 17px;
+    }
+
+    .standings-page-table th,
+    .standings-page-table td {
+        padding: 13px 10px;
+    }
+
+}
