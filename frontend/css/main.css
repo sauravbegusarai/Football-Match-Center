@@ -1204,3 +1204,409 @@ button {
 .statistics-list > div:last-child {
     border-bottom: none;
 }
+
+
+/* =========================================
+   TEAMS PAGE
+========================================= */
+
+.page-header {
+    padding: 50px 0 30px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+}
+
+.page-header h1 {
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: var(--text-muted);
+}
+
+
+.teams-section {
+    padding: 50px 0;
+}
+
+
+.teams-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.team-card {
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    padding: 25px;
+
+    text-align: center;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.team-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow);
+}
+
+
+.team-logo {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    color: var(--white);
+
+    font-weight: 700;
+
+    font-size: 18px;
+}
+
+
+.team-info h3 {
+    margin-bottom: 8px;
+
+    font-size: 17px;
+}
+
+
+.team-info p {
+    margin-bottom: 5px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+}
+
+
+.team-info span {
+    color: var(--text-muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   TEAM DETAILS PAGE
+========================================= */
+
+.team-details-section {
+    padding: 40px 0 60px;
+}
+
+
+/* =========================================
+   TEAM HEADER
+========================================= */
+
+.team-details-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.team-details-logo {
+    width: 110px;
+    height: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+    color: var(--white);
+
+    font-size: 26px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+.team-details-league {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: var(--primary);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.team-details-info h1 {
+    margin-bottom: 6px;
+    font-size: 32px;
+}
+
+.team-details-info p {
+    color: var(--text-muted);
+}
+
+
+/* =========================================
+   TEAM TABS
+========================================= */
+
+.team-tabs {
+    display: flex;
+    gap: 5px;
+
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.team-tab {
+    padding: 14px 20px;
+
+    border: none;
+    background: transparent;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    border-bottom: 2px solid transparent;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.team-tab:hover {
+    color: var(--primary);
+}
+
+.team-tab.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+
+/* =========================================
+   TAB CONTENT
+========================================= */
+
+.team-tab-content {
+    display: none;
+}
+
+.team-tab-content.active {
+    display: block;
+}
+
+
+/* =========================================
+   TEAM CONTENT GRID
+========================================= */
+
+.team-content-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 25px;
+}
+
+
+/* =========================================
+   TEAM INFORMATION
+========================================= */
+
+.team-info-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.team-info-list > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.team-info-list > div:last-child {
+    border-bottom: none;
+}
+
+.team-info-list span {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.team-info-list strong {
+    font-size: 14px;
+}
+
+
+/* =========================================
+   TEAM FORM
+========================================= */
+
+.team-form {
+    display: flex;
+    gap: 12px;
+
+    padding: 20px 0;
+}
+
+.team-form span {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+    color: var(--white);
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   SQUAD
+========================================= */
+
+.squad-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.squad-player {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px;
+
+    background: #f8fafc;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.squad-player:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.squad-number {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+    color: var(--white);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+.squad-player-info h4 {
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.squad-player-info p {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+
+/* =========================================
+   TEAM MATCH
+========================================= */
+
+.team-match {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px;
+
+    margin-bottom: 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+.team-match-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.team-match-info strong {
+    font-size: 14px;
+}
+
+.team-match-info span {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.team-match-score {
+    font-size: 18px;
+    font-weight: 700;
+}

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Team Details - Football Match Center</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+</head>
+
+<body>
+
+    <!-- ================================
+         NAVBAR
+    ================================= -->
+
+    <header class="navbar">
+
+        <div class="container navbar-content">
+
+            <a href="../index.html" class="logo">
+                ⚽ Football Match Center
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="matches.html">
+                    Matches
+                </a>
+
+                <a href="teams.html" class="active">
+                    Teams
+                </a>
+
+                <a href="players.html">
+                    Players
+                </a>
+
+                <a href="standings.html">
+                    Standings
+                </a>
+
+                <a href="fixtures.html">
+                    Fixtures
+                </a>
+
+                <a href="results.html">
+                    Results
+                </a>
+
+            </nav>
+
+            <div class="nav-actions">
+
+                <button class="icon-button"
+                        id="searchButton">
+                    🔍
+                </button>
+
+                <button class="mobile-menu-button"
+                        id="mobileMenuButton">
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- SEARCH -->
+
+        <div class="search-box"
+             id="searchBox">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search teams, players..."
+            >
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================
+         BACK BUTTON
+    ================================= -->
+
+    <section class="breadcrumb-section">
+
+        <div class="container">
+
+            <a href="teams.html">
+                ← Back to Teams
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         TEAM HEADER
+    ================================= -->
+
+    <section class="team-details-section">
+
+        <div class="container">
+
+            <div class="team-details-card">
+
+                <div class="team-details-logo"
+                     id="teamLogo">
+                    MCI
+                </div>
+
+                <div class="team-details-info">
+
+                    <span class="team-details-league"
+                          id="teamLeague">
+                        Premier League
+                    </span>
+
+                    <h1 id="teamName">
+                        Manchester City
+                    </h1>
+
+                    <p id="teamCountry">
+                        England
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 TEAM TABS
+            ================================= -->
+
+            <div class="team-tabs">
+
+                <button class="team-tab active"
+                        data-tab="overview">
+                    Overview
+                </button>
+
+                <button class="team-tab"
+                        data-tab="squad">
+                    Squad
+                </button>
+
+                <button class="team-tab"
+                        data-tab="matches">
+                    Matches
+                </button>
+
+                <button class="team-tab"
+                        data-tab="statistics">
+                    Statistics
+                </button>
+
+            </div>
+
+
+            <!-- ================================
+                 OVERVIEW
+            ================================= -->
+
+            <div class="team-tab-content active"
+                 id="overviewTab">
+
+                <div class="team-content-grid">
+
+                    <div class="details-panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Team Information
+                            </h3>
+
+                        </div>
+
+                        <div class="team-info-list">
+
+                            <div>
+                                <span>Team</span>
+                                <strong id="infoTeamName">
+                                    Manchester City
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>League</span>
+                                <strong id="infoLeague">
+                                    Premier League
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Country</span>
+                                <strong id="infoCountry">
+                                    England
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Short Name</span>
+                                <strong id="infoShortName">
+                                    MCI
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="details-panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Recent Form
+                            </h3>
+
+                        </div>
+
+                        <div class="team-form"
+                             id="teamForm">
+
+                            <span>W</span>
+                            <span>W</span>
+                            <span>D</span>
+                            <span>W</span>
+                            <span>L</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 SQUAD
+            ================================= -->
+
+            <div class="team-tab-content"
+                 id="squadTab">
+
+                <div class="details-panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+                            Squad
+                        </h3>
+
+                    </div>
+
+                    <div class="squad-grid"
+                         id="squadGrid">
+
+                        <!-- Players will be rendered by JavaScript -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 MATCHES
+            ================================= -->
+
+            <div class="team-tab-content"
+                 id="matchesTab">
+
+                <div class="details-panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+                            Recent Matches
+                        </h3>
+
+                    </div>
+
+                    <div id="teamMatches">
+
+                        <!-- Matches will be rendered by JavaScript -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================
+                 STATISTICS
+            ================================= -->
+
+            <div class="team-tab-content"
+                 id="statisticsTab">
+
+                <div class="details-panel">
+
+                    <div class="panel-header">
+
+                        <h3>
+                            Team Statistics
+                        </h3>
+
+                    </div>
+
+                    <div class="team-info-list"
+                         id="teamStatistics">
+
+                        <!-- Statistics will be rendered by JavaScript -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 Football Match Center.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script src="../js/main.js"></script>
+    <script src="../js/team-details.js"></script>
+
+</body>
+
+</html>
