@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Player Details | Football Match Center</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="container navbar-content">
+
+            <a href="../index.html" class="logo">
+                Football Match Center
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="../index.html">Home</a>
+
+                <a href="match-details.html">Matches</a>
+
+                <a href="teams.html">Teams</a>
+
+                <a href="players.html" class="active">Players</a>
+
+                <a href="#">Standings</a>
+
+                <a href="#">Fixtures</a>
+
+                <a href="#">Results</a>
+
+            </nav>
+
+            <div class="nav-actions">
+
+                <button class="icon-button" id="searchButton">
+                    🔍
+                </button>
+
+                <button class="mobile-menu-button" id="mobileMenuButton">
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Search -->
+
+        <div class="search-box" id="searchBox">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search teams, players..."
+            >
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         BREADCRUMB
+    ========================== -->
+
+    <section class="breadcrumb-section">
+
+        <div class="container">
+
+            <a href="players.html">
+                ← Back to Players
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PLAYER DETAILS
+    ========================== -->
+
+    <main>
+
+        <section class="player-details-section">
+
+            <div class="container">
+
+                <!-- Player Header -->
+
+                <div class="player-details-card">
+
+                    <div
+                        class="player-details-avatar"
+                        id="playerAvatar"
+                    >
+                        --
+                    </div>
+
+                    <div class="player-details-info">
+
+                        <span
+                            class="player-details-position"
+                            id="playerPosition"
+                        >
+                            Position
+                        </span>
+
+                        <h1 id="playerName">
+                            Player Name
+                        </h1>
+
+                        <p id="playerTeam">
+                            Team
+                        </p>
+
+                        <p id="playerCountry">
+                            Country
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Player Tabs -->
+
+                <div class="player-tabs">
+
+                    <button
+                        class="player-tab active"
+                        data-tab="overview"
+                    >
+                        Overview
+                    </button>
+
+                    <button
+                        class="player-tab"
+                        data-tab="matches"
+                    >
+                        Matches
+                    </button>
+
+                    <button
+                        class="player-tab"
+                        data-tab="statistics"
+                    >
+                        Statistics
+                    </button>
+
+                </div>
+
+
+                <!-- =========================
+                     OVERVIEW
+                ========================== -->
+
+                <div
+                    class="player-tab-content active"
+                    id="overviewTab"
+                >
+
+                    <div class="player-content-grid">
+
+                        <div class="details-panel">
+
+                            <div class="panel-header">
+
+                                <h3>
+                                    Player Information
+                                </h3>
+
+                            </div>
+
+                            <div
+                                class="player-info-list"
+                                id="playerInfo"
+                            >
+                                <!-- Filled by JavaScript -->
+                            </div>
+
+                        </div>
+
+
+                        <div class="details-panel">
+
+                            <div class="panel-header">
+
+                                <h3>
+                                    Season Statistics
+                                </h3>
+
+                            </div>
+
+                            <div
+                                class="player-stats-grid"
+                                id="playerOverviewStats"
+                            >
+                                <!-- Filled by JavaScript -->
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     MATCHES
+                ========================== -->
+
+                <div
+                    class="player-tab-content"
+                    id="matchesTab"
+                >
+
+                    <div class="details-panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Recent Matches
+                            </h3>
+
+                        </div>
+
+                        <div id="playerMatches">
+                            <!-- Filled by JavaScript -->
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     STATISTICS
+                ========================== -->
+
+                <div
+                    class="player-tab-content"
+                    id="statisticsTab"
+                >
+
+                    <div class="details-panel">
+
+                        <div class="panel-header">
+
+                            <h3>
+                                Player Statistics
+                            </h3>
+
+                        </div>
+
+                        <div
+                            class="player-statistics-list"
+                            id="playerStatistics"
+                        >
+                            <!-- Filled by JavaScript -->
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 Football Match Center.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="../js/main.js"></script>
+
+    <script src="../js/player-details.js"></script>
+
+</body>
+
+</html>

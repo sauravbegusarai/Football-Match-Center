@@ -119,3 +119,89 @@
     }
 
 }
+
+/* =========================================
+   PLAYERS RESPONSIVE
+========================================= */
+
+@media (max-width: 1024px) {
+
+    .players-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .players-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .players-filters {
+        flex-direction: column;
+    }
+
+    .players-filters select {
+        width: 100%;
+    }
+
+}
+
+/* =========================================
+   PLAYER DETAILS RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .player-details-card {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    .player-details-info h1 {
+        font-size: 26px;
+    }
+
+
+    .player-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .player-tabs {
+        overflow-x: auto;
+    }
+
+
+    .player-tab {
+        white-space: nowrap;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .player-details-avatar {
+        width: 95px;
+        height: 95px;
+
+        font-size: 24px;
+    }
+
+
+    .player-stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .player-match {
+        gap: 15px;
+    }
+
+}
