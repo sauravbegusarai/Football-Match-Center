@@ -1,40 +1,49 @@
-const matches = require("../data/matches");
-
+const Match = require("../models/Match");
 
 // GET all matches
-function getAllMatches(req, res) {
+async function getAllMatches(req, res) {
+    try {
+        const matches = await Match.find();
 
-    res.json({
-        success: true,
-        count: matches.length,
-        data: matches
-    });
-
+        res.json({
+            success: true,
+            count: matches.length,
+            data: matches
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Failed to fetch matches",
+            error: error.message
+        });
+    }
 }
 
-
 // GET single match
-function getMatchById(req, res) {
+async function getMatchById(req, res) {
+    try {
+        const matchId = Number(req.params.id);
 
-    const matchId = Number(req.params.id);
+        const match = await Match.findOne({ id: matchId });
 
-    const match =
-        matches.find(match => match.id === matchId);
+        if (!match) {
+            return res.status(404).json({
+                success: false,
+                message: "Match not found"
+            });
+        }
 
-    if (!match) {
-
-        return res.status(404).json({
-            success: false,
-            message: "Match not found"
+        res.json({
+            success: true,
+            data: match
         });
-
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Failed to fetch match",
+            error: error.message
+        });
     }
-
-    res.json({
-        success: true,
-        data: match
-    });
-
 }
 
 

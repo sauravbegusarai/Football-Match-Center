@@ -2,12 +2,13 @@ const express = require("express");
 const cors = require("cors");
 
 const matchRoutes = require("./routes/matchRoutes");
+const connectDB = require("./config/db");
 
 const app = express();
 app.use(cors());
 
 const PORT = 5000;
-
+connectDB();
 
 // =========================================
 // HOME ROUTE
