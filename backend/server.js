@@ -3,16 +3,18 @@ const cors = require("cors");
 
 const matchRoutes = require("./routes/matchRoutes");
 const connectDB = require("./config/db");
-const startLiveMatchSync = require("./services/liveMatchSync");
-
-
 
 const app = express();
+
 app.use(cors());
 
-const PORT = 5000;
+
+// =========================================
+// DATABASE
+// =========================================
+
 connectDB();
-startLiveMatchSync();
+
 
 // =========================================
 // HOME ROUTE
@@ -23,6 +25,7 @@ app.get("/", (req, res) => {
     res.send("Football Match Center Backend is running!");
 
 });
+
 
 // =========================================
 // TEST API
@@ -38,21 +41,15 @@ app.get("/api/health", (req, res) => {
 });
 
 
+// =========================================
+// MATCH ROUTES
+// =========================================
 
 app.use("/api/matches", matchRoutes);
 
 
-
-
-
 // =========================================
-// START SERVER
+// EXPORT APP FOR VERCEL
 // =========================================
 
-app.listen(PORT, () => {
-
-    console.log(
-        `Server running at http://localhost:${PORT}`
-    );
-
-});
+module.exports = app;
