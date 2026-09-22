@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Matches | Football Match Center</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Matches CSS -->
+    <link rel="stylesheet" href="../css/matches.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="site-header">
+
+        <div class="container navbar">
+
+            <!-- Logo -->
+            <a href="../index.html" class="logo">
+                <span class="logo-icon">⚽</span>
+                <span>Football Match Center</span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="main-nav">
+
+                <a href="../index.html" class="nav-link">
+                    Home
+                </a>
+
+                <a href="matches.html" class="nav-link active">
+                    Matches
+                </a>
+
+                <a href="teams.html" class="nav-link">
+                    Teams
+                </a>
+
+                <a href="players.html" class="nav-link">
+                    Players
+                </a>
+
+                <a href="standings.html" class="nav-link">
+                    Standings
+                </a>
+
+                <a href="fixtures.html" class="nav-link">
+                    Fixtures
+                </a>
+
+                <a href="results.html" class="nav-link">
+                    Results
+                </a>
+
+            </nav>
+
+            <!-- Search -->
+            <div class="header-actions">
+
+                <div class="search-box" id="searchBox">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search teams, players..."
+                    >
+
+                </div>
+
+                <button class="search-button" id="searchButton">
+                    🔍
+                </button>
+
+                <button class="menu-button" id="menuButton">
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main>
+
+        <section class="matches-page">
+
+            <div class="container">
+
+                <!-- Back Button -->
+                <a href="../index.html" class="back-button">
+                    ← Back to Home
+                </a>
+
+                <!-- Page Heading -->
+                <div class="page-heading">
+
+                    <h1>Football Matches</h1>
+
+                    <p>
+                        View all available football matches and their details.
+                    </p>
+
+                </div>
+
+
+                <!-- Matches Container -->
+                <div class="matches-grid" id="matchesGrid">
+
+                    <!-- Match cards will be loaded here -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="../js/main.js"></script>
+
+    <script>
+
+    const matchesGrid =
+        document.getElementById("matchesGrid");
+
+    const BACKEND_URL =
+        "https://football-match-center-tau.vercel.app";
+
+
+    async function loadMatches() {
+
+        try {
+
+            matchesGrid.innerHTML = `
+                <p>Loading matches...</p>
+            `;
+
+
+            const response =
+                await fetch(
+                    `${BACKEND_URL}/api/matches`
+                );
+
+
+            if (!response.ok) {
+                throw new Error(
+                    `HTTP error: ${response.status}`
+                );
+            }
+
+
+            const result =
+                await response.json();
+
+
+            if (!result.success) {
+                throw new Error(
+                    "Failed to load matches"
+                );
+            }
+
+
+            renderMatches(result.data);
+
+
+        } catch (error) {
+
+            console.error(
+                "Failed to load matches:",
+                error
+            );
+
+
+            matchesGrid.innerHTML = `
+                <div class="no-matches">
+                    <h3>Unable to load matches</h3>
+                    <p>
+                        Please try again later.
+                    </p>
+                </div>
+            `;
+
+        }
+
+    }
+
+
+    function renderMatches(matches) {
+
+        matchesGrid.innerHTML = "";
+
+
+        if (!matches || matches.length === 0) {
+
+            matchesGrid.innerHTML = `
+                <div class="no-matches">
+                    <h3>No matches available</h3>
+                    <p>
+                        There are no matches available right now.
+                    </p>
+                </div>
+            `;
+
+            return;
+        }
+
+
+        matches.forEach(match => {
+
+            matchesGrid.innerHTML += `
+
+                <article class="match-card">
+
+                    <div class="match-card-header">
+
+                        <span>
+                            ${match.competition || "Football"}
+                        </span>
+
+                        <span class="live-status">
+                            ${match.status || "Scheduled"}
+                        </span>
+
+                    </div>
+
+
+                    <div class="match-teams">
+
+                        <div class="team">
+
+                            <div class="team-name">
+                                ${match.homeTeam}
+                            </div>
+
+                            <div class="score">
+                                ${match.homeScore ?? 0}
+                            </div>
+
+                        </div>
+
+
+                        <div class="vs">
+                            VS
+                        </div>
+
+
+                        <div class="team">
+
+                            <div class="team-name">
+                                ${match.awayTeam}
+                            </div>
+
+                            <div class="score">
+                                ${match.awayScore ?? 0}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="match-card-footer">
+
+                        <span>
+                            ${
+                                match.minute
+                                    ? `${match.minute}'`
+                                    : ""
+                            }
+                        </span>
+
+                        <a
+                            href="match-details.html?id=${match.id}"
+                            class="details-button"
+                        >
+                            View Details →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            `;
+
+        });
+
+    }
+
+
+    loadMatches();
+
+</script>
+
+</body>
+
+</html>

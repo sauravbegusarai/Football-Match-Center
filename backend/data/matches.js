@@ -15,25 +15,25 @@ const matches = [
 
         events: [
             {
-                minute: "67'",
+                minute: 67,
                 icon: "⚽",
                 type: "Goal",
                 player: "Erling Haaland"
             },
             {
-                minute: "54'",
+                minute: 54,
                 icon: "🟨",
                 type: "Yellow Card",
                 player: "Declan Rice"
             },
             {
-                minute: "45'",
+                minute: 45,
                 icon: "⏱️",
                 type: "Half Time",
                 player: "Manchester City 2 - 1 Arsenal"
             },
             {
-                minute: "23'",
+                minute: 23,
                 icon: "⚽",
                 type: "Goal",
                 player: "Bukayo Saka"
@@ -95,19 +95,19 @@ const matches = [
 
         events: [
             {
-                minute: "54'",
+                minute: 54,
                 icon: "⚽",
                 type: "Goal",
                 player: "Robert Lewandowski"
             },
             {
-                minute: "41'",
+                minute: 41,
                 icon: "🟨",
                 type: "Yellow Card",
                 player: "Jude Bellingham"
             },
             {
-                minute: "28'",
+                minute: 28,
                 icon: "⚽",
                 type: "Goal",
                 player: "Vinicius Junior"

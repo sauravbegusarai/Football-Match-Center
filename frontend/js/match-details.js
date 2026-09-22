@@ -18,9 +18,9 @@ async function loadMatch() {
 
     try {
 
-        const response = await fetch(
-            `http://localhost:5000/api/matches/${matchId}`
-        );
+       const response = await fetch(
+    `https://football-match-center-tau.vercel.app/api/matches/${matchId}`
+);
 
         const result = await response.json();
 
@@ -139,10 +139,12 @@ function renderMatchDetails(match) {
     // Events
     renderEvents(match.events);
 
-
-    // Statistics
-    renderStatistics(match.statistics);
-    renderLineups(match.lineups);
+renderStatistics(match.statistics);
+renderLineups(
+    match.lineups,
+    match.homeTeam,
+    match.awayTeam
+);
 }
 
 
@@ -302,6 +304,8 @@ tabs.forEach(tab => {
 
 });
 
+
+
 // =========================================
 // RENDER LINEUPS
 // =========================================
@@ -322,32 +326,71 @@ function renderLineups(lineups, homeTeam, awayTeam) {
 
     if (!homePlayers || !awayPlayers) return;
 
-    homeTitle.textContent = homeTeam;
-    awayTitle.textContent = awayTeam;
 
+    // Lineups not available
+    if (
+        !lineups ||
+        !lineups.home ||
+        !lineups.away
+    ) {
+
+        homePlayers.innerHTML = `
+            <p>Home lineup is not available.</p>
+        `;
+
+        awayPlayers.innerHTML = `
+            <p>Away lineup is not available.</p>
+        `;
+
+        return;
+    }
+
+
+    // Team names
+    homeTitle.textContent =
+        homeTeam || "Home Team";
+
+    awayTitle.textContent =
+        awayTeam || "Away Team";
+
+
+    // Home lineup
     homePlayers.innerHTML = "";
 
     lineups.home.forEach(player => {
 
         homePlayers.innerHTML += `
             <div class="lineup-player">
-                <strong>${player.number}</strong>
+
+                <strong>
+                    ${player.number ?? "-"}
+                </strong>
+
                 ${player.name}
+
             </div>
         `;
 
     });
 
+
+    // Away lineup
     awayPlayers.innerHTML = "";
 
     lineups.away.forEach(player => {
 
         awayPlayers.innerHTML += `
             <div class="lineup-player">
-                <strong>${player.number}</strong>
+
+                <strong>
+                    ${player.number ?? "-"}
+                </strong>
+
                 ${player.name}
+
             </div>
         `;
 
     });
+
 }

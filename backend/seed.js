@@ -1,3 +1,4 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 
 const connectDB = require("./config/db");
@@ -8,15 +9,32 @@ const seedMatches = async () => {
     try {
         await connectDB();
 
-        await Match.deleteMany();
+        for (const match of matches) {
 
-        await Match.insertMany(matches);
+            await Match.findOneAndUpdate(
+                { id: match.id },
+                match,
+                {
+                    upsert: true,
+                    new: true
+                }
+            );
 
-        console.log("Matches inserted into MongoDB successfully");
+        }
+
+        console.log(
+            "Demo matches inserted/updated successfully"
+        );
 
         process.exit(0);
+
     } catch (error) {
-        console.error("Error seeding matches:", error.message);
+
+        console.error(
+            "Error seeding matches:",
+            error.message
+        );
+
         process.exit(1);
     }
 };
