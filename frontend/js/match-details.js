@@ -165,7 +165,11 @@ function renderEvents(events) {
                 <div class="event-item">
 
                     <div class="event-minute">
-                        ${event.minute}
+                        ${event.minute}'
+                        ${event.extraMinute
+                            ? `+${event.extraMinute}`
+                            : ""
+                        }
                     </div>
 
                     <div class="event-icon">
@@ -176,11 +180,21 @@ function renderEvents(events) {
 
                         <strong>
                             ${event.type}
+                            ${event.detail
+                                ? ` - ${event.detail}`
+                                : ""
+                            }
                         </strong>
 
                         <p>
                             ${event.player}
                         </p>
+
+                        ${
+                            event.assist
+                                ? `<small>Assist: ${event.assist}</small>`
+                                : ""
+                        }
 
                     </div>
 
@@ -203,34 +217,45 @@ function renderStatistics(statistics) {
 
     if (!statisticsList) return;
 
+    // Statistics not available
+    if (!statistics) {
+
+        statisticsList.innerHTML = `
+            <div class="no-statistics">
+                <p>Statistics are not available for this match.</p>
+            </div>
+        `;
+
+        return;
+    }
+
     statisticsList.innerHTML = `
         <div>
             <span>Possession</span>
-            <strong>${statistics.possession}</strong>
+            <strong>${statistics.possession ?? "N/A"}</strong>
         </div>
 
         <div>
             <span>Shots</span>
-            <strong>${statistics.shots}</strong>
+            <strong>${statistics.shots ?? "N/A"}</strong>
         </div>
 
         <div>
             <span>Shots on Target</span>
-            <strong>${statistics.shotsOnTarget}</strong>
+            <strong>${statistics.shotsOnTarget ?? "N/A"}</strong>
         </div>
 
         <div>
             <span>Corners</span>
-            <strong>${statistics.corners}</strong>
+            <strong>${statistics.corners ?? "N/A"}</strong>
         </div>
 
         <div>
             <span>Fouls</span>
-            <strong>${statistics.fouls}</strong>
+            <strong>${statistics.fouls ?? "N/A"}</strong>
         </div>
     `;
 }
-
 // =========================================
 // TAB FUNCTIONALITY
 // =========================================

@@ -3,12 +3,16 @@ const cors = require("cors");
 
 const matchRoutes = require("./routes/matchRoutes");
 const connectDB = require("./config/db");
+const startLiveMatchSync = require("./services/liveMatchSync");
+
+
 
 const app = express();
 app.use(cors());
 
 const PORT = 5000;
 connectDB();
+startLiveMatchSync();
 
 // =========================================
 // HOME ROUTE

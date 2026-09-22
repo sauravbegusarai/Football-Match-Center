@@ -8,6 +8,12 @@ const matchSchema = new mongoose.Schema(
             unique: true
         },
 
+        source: {
+    type: String,
+    enum: ["demo", "api"],
+    default: "demo"
+},
+
         competition: {
             type: String,
             required: true
@@ -33,6 +39,16 @@ const matchSchema = new mongoose.Schema(
             required: true
         },
 
+        homeLogo: {
+    type: String,
+    default: ""
+},
+
+awayLogo: {
+    type: String,
+    default: ""
+},
+
         homeScore: {
             type: Number,
             default: 0
@@ -48,13 +64,17 @@ const matchSchema = new mongoose.Schema(
             required: true
         },
 
-        events: [
+       events: [
     new mongoose.Schema(
         {
-            minute: String,
+            minute: Number,
+            extraMinute: Number,
             icon: String,
             type: String,
-            player: String
+            detail: String,
+            player: String,
+            assist: String,
+            team: String
         },
         {
             _id: false
@@ -71,20 +91,24 @@ const matchSchema = new mongoose.Schema(
         },
 
         lineups: {
-            home: [
-                {
-                    number: Number,
-                    name: String
-                }
-            ],
-
-            away: [
-                {
-                    number: Number,
-                    name: String
-                }
-            ]
+    home: [
+        {
+            number: Number,
+            name: String,
+            position: String,
+            grid: String
         }
+    ],
+
+    away: [
+        {
+            number: Number,
+            name: String,
+            position: String,
+            grid: String
+        }
+    ]
+}
     },
 
     {

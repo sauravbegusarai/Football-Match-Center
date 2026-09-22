@@ -77,46 +77,61 @@ function getTeamLogo(path, fallback = "⚽") {
     `;
 }
 
-const liveMatches = [
 
-    {
-        id: 1,
-        competition: "Premier League",
-        status: "LIVE",
-        minute: 67,
+let liveMatches = [];
 
-        homeTeam: "Manchester City",
-        awayTeam: "Arsenal",
+// ==================================================
+// LOAD LIVE MATCHES FROM BACKEND API
+// ==================================================
 
-        homeLogo: "assets/images/manchester-city.png",
-        awayLogo: "assets/images/arsenal.png",
+async function loadLiveMatchesFromAPI() {
 
-        homeScore: 2,
-        awayScore: 1,
+    try {
 
-        venue: "Etihad Stadium"
-    },
+        const response =
+            await fetch("http://localhost:5000/api/matches/live");
 
-    {
-        id: 2,
-        competition: "La Liga",
-        status: "LIVE",
-        minute: 54,
+        const result = await response.json();
 
-        homeTeam: "Barcelona",
-        awayTeam: "Real Madrid",
+        if (!result.success) {
+            throw new Error("Failed to load live matches");
+        }
 
-        homeLogo: "assets/images/barcelona.png",
-        awayLogo: "assets/images/real-madrid.png",
+        console.log(
+            "Live matches received from backend:",
+            result.data
+        );
 
-        homeScore: 1,
-        awayScore: 1,
+       if (result.data.length > 0) {
 
-        venue: "Camp Nou"
+    liveMatches = result.data;
+
+    renderLiveMatches();
+
+} else {
+
+    console.log("No live matches available right now.");
+
+    const container =
+        document.getElementById("liveMatches");
+
+    container.innerHTML = `
+        <p class="no-live-matches">
+            No live matches available right now.
+        </p>
+    `;
+}
+
+    } catch (error) {
+
+        console.error(
+            "Failed to load live matches from backend:",
+            error
+        );
+
     }
 
-];
-
+}
 
 const upcomingMatches = [
 
@@ -818,4 +833,20 @@ async function loadLiveMatchesFromBackend() {
 
 }
 
+async function testLiveBackendAPI() {
+    try {
+        const response = await fetch("http://localhost:5000/api/matches/live");
+
+        const data = await response.json();
+
+        console.log("Live Backend API Response:");
+        console.log(data);
+
+    } catch (error) {
+        console.error("Live Backend API Error:", error);
+    }
+}
+
+testLiveBackendAPI();
+loadLiveMatchesFromAPI();
 loadLiveMatchesFromBackend();
