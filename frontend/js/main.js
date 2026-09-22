@@ -89,7 +89,7 @@ async function loadLiveMatchesFromAPI() {
     try {
 
         const response =
-            await fetch("http://localhost:5000/api/matches/live");
+    await fetch("https://football-match-center-tau.vercel.app/api/matches/live");
 
         const result = await response.json();
 
